@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 res.setVisibility(View.VISIBLE);
                 reset.setVisibility(View.VISIBLE);
                 res.setText("The answer is : " + String.valueOf(ans));
+                Toast.makeText(MainActivity.this,"result calculated!",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 num2.setText("");
                 res.setVisibility(View.GONE);
                 reset.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this,"Reset succesful",Toast.LENGTH_SHORT).show();
             }
         });
     }
