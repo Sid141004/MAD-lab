@@ -1,10 +1,12 @@
 package com.example.firstapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText num2;
     private Button mul;
     private TextView res;
-    private Button reset;
+    private Button reset ;
+    private Button next1;
 
 
     @Override
@@ -37,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         mul = (Button) findViewById(R.id.button);
         res = (TextView) findViewById(R.id.textView4);
         reset = (Button) findViewById(R.id.button2);
+        next1 = (Button) findViewById(R.id.next);
+
+        next1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Layouts_test.class);
+                startActivity(intent);
+            }
+        });
 
         mul.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 res.setVisibility(View.VISIBLE);
                 reset.setVisibility(View.VISIBLE);
                 res.setText("The answer is : " + String.valueOf(ans));
+                Toast.makeText(MainActivity.this,"result calculated!",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 num2.setText("");
                 res.setVisibility(View.GONE);
                 reset.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this,"Reset succesful",Toast.LENGTH_SHORT).show();
             }
         });
     }
