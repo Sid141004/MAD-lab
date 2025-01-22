@@ -1,10 +1,12 @@
 package com.example.firstapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,13 +14,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.PrimitiveIterator;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText num1;
     private EditText num2;
     private Button mul;
     private TextView res;
-    private Button reset;
+    private Button reset ;
+    private Button next1;
+    private Button signup;
+    private Button calc;
 
 
     @Override
@@ -37,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
         mul = (Button) findViewById(R.id.button);
         res = (TextView) findViewById(R.id.textView4);
         reset = (Button) findViewById(R.id.button2);
+        next1 = (Button) findViewById(R.id.next);
+        signup = (Button) findViewById(R.id.signup);
+        calc = (Button) findViewById(R.id.calc);
+
+        next1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Layouts_test.class);
+                startActivity(intent);
+            }
+        });
 
         mul.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,5 +79,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"Reset succesful",Toast.LENGTH_SHORT).show();
             }
         });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,signup.class));
+            }
+        });
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, calculator.class));
+            }
+        });
+
     }
 }
